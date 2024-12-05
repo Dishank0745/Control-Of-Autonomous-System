@@ -43,6 +43,7 @@ A quadcopter is an underactuated nonlinear system capable of six degrees of free
 
 ---
 
+
 ## Getting Started
 
 ### Prerequisites
@@ -50,11 +51,61 @@ A quadcopter is an underactuated nonlinear system capable of six degrees of free
 - MATLAB/Simulink (Recommended for running the simulations)
 - Basic understanding of control systems and dynamics
 
-### Running Simulations
+---
 
-1. Open the MATLAB script files provided.  
-2. Run the script for stabilization or trajectory tracking.  
-3. Analyze the generated plots for insights.
+## Overview
+
+A quadcopter is an underactuated nonlinear system capable of six degrees of freedom. This project covers:
+
+- **System Modeling:**  
+  - Quadcopter dynamics, including position and orientation in inertial and body frames.
+  - Use of Euler angles and rotational matrices for frame transformations.  
+
+- **Control Implementation:**  
+  - Proportional-Derivative (PD) controller for stabilization and trajectory tracking.
+  - Torque and thrust equations derived for roll, pitch, and yaw.
+  - Feedback Linearization controller for advanced control testing.
+
+- **Simulations:**  
+  - Stabilization with and without control.
+  - Trajectory tracking for circular and spiral paths.
+
+---
+
+## Key Simulation Features
+
+### Control Modes
+The simulation supports the following modes:
+1. **Stabilization:** Maintain hover position with PD control.  
+2. **Trajectory Tracking:** Follow a predefined path (e.g., circular or spiral trajectories).  
+3. **Feedback Linearization:** Advanced control to directly linearize system dynamics.
+
+### Adjustable Parameters
+- **Trajectory Type:** Circular or spiral.  
+- **Control Gains:** Tunable parameters for PD control (`Kp`, `Kd`) for precise performance.  
+- **Simulation Time:** Configurable based on desired duration and trajectory complexity.
+
+### Notations
+- **State Variables:**
+  - **Position:** \([x, y, z]\)
+  - **Linear Velocities:** \([u, v, w]\) (body frame) and \([\dot{x}, \dot{y}, \dot{z}]\) (inertial frame)
+  - **Angular Velocities:** \([p, q, r]\) (body frame) and \([\dot{\phi}, \dot{\theta}, \dot{\psi}]\) (inertial frame)  
+
+---
+
+## Running the Simulation
+
+1. Open the MATLAB script and configure the desired parameters:
+   - **Control Mode:** Select `1` for stabilization, `3` for trajectory tracking, or `4` for feedback linearization.
+   - **Trajectory Type:** Use `param.traj = 1` for circular or `param.traj = 2` for spiral.
+   - Adjust PD gains or trajectory properties as required.
+
+2. Run the script to simulate quadcopter behavior.
+
+3. View results in the generated plots:
+   - Control inputs for each rotor.
+   - Position and angle evolution over time.
+   - 3D trajectory visualization comparing actual and desired paths.
 
 ---
 
